@@ -2,91 +2,97 @@
 @import "fonts.pcss";
 @import "variables.pcss";
 
-
 /* Base */
 
-
-*, *:before, *:after {
-    box-sizing: border-box;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 html {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 body {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    @mixin Roboto-Reg;
-    font-size: 14px;
-    line-height: 1.4;
-    color: $text-color;
-    background-color: #000000;
+  position: relative;
+  width: 100%;
+  font-size: 14px;
+  line-height: 1.4;
+  color: $text-color;
+  background-color: #000000;
+  background-image: url("/img/bg.jpg");
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: cover;
 }
 
-input, textarea{
-    outline: none;
+input,
+textarea {
+  outline: none;
 }
 
 input:active,
-input:focus{
-    border: 1px solid rgba($text-color, 0.8);
-    transition: border $transition;
-}
-
-input{
+input:focus {
+  border: 1px solid rgba($text-color, 0.8);
   transition: border $transition;
 }
 
-
+input {
+  transition: border $transition;
+}
 
 ::-webkit-input-placeholder {
-    color: $text-color;
-    transition: color $transition;
+  color: $text-color;
+  transition: color $transition;
 }
 
 ::-moz-placeholder {
-    color: $text-color;
-    transition: color $transition;
+  color: $text-color;
+  transition: color $transition;
 }
-/* Firefox 19+ */
+
 :-moz-placeholder {
-    color: $text-color;
-    transition: color $transition;
+  color: $text-color;
+  transition: color $transition;
 }
-/* Firefox 18- */
+
 :-ms-input-placeholder {
-    color: $text-color;
-    transition: color $transition;
+  color: $text-color;
+  transition: color $transition;
 }
 
 :focus::-webkit-input-placeholder {
-    color: rgba($text-color, 0.5);
-    transition: color $transition;
+  color: rgba($text-color, 0.5);
+  transition: color $transition;
 }
 
 :focus::-moz-placeholder {
-    color: rgba($text-color, 0.5);
-    transition: color $transition;
+  color: rgba($text-color, 0.5);
+  transition: color $transition;
 }
 
 :focus:-moz-placeholder {
-    color: rgba($text-color, 0.5);
-    transition: color $transition;
+  color: rgba($text-color, 0.5);
+  transition: color $transition;
 }
 
 :focus:-ms-input-placeholder {
-    color: rgba($text-color, 0.5);
-    transition: color $transition;
+  color: rgba($text-color, 0.5);
+  transition: color $transition;
 }
 
 h1 {
   margin: 0;
   font-size: 40px;
   line-height: 1.5;
+
+  @mixin Roboto-Reg;
+
+  @media (max-width: $tablet) {
+    font-size: 24px;
+  }
 }
 
 a {
@@ -94,6 +100,7 @@ a {
   text-decoration: none;
   opacity: 1;
   transition: opacity $transition;
+
   &:hover {
     opacity: 0.7;
     transition: opacity $transition;
@@ -112,19 +119,29 @@ button {
   background-color: $btn-color;
   border: none;
   cursor: pointer;
+
   @mixin Roboto-Reg;
+
   transition: background-color $transition;
 
-  &:hover{
+  &:hover {
     background-color: rgba($btn-color, 0.8);
     transition: background-color $transition;
   }
 
   &:active,
-  &:focus{
+  &:focus {
     background-color: $btn-color;
     transition: background-color $transition;
   }
+}
+
+/* Header */
+
+header {
+  position: absolute;
+  width: 100%;
+  z-index: 1;
 }
 
 .wrapper {
@@ -132,9 +149,17 @@ button {
   width: 1170px;
   height: 100%;
   margin: 0 auto;
-  background-color: rgba(190, 131, 187, 0.67);
-}
 
+  @media (max-width: $desktop) {
+    width: calc(100% - 100px);
+    margin: 0 50px;
+  }
+
+  @media (max-width: $phone) {
+    width: calc(100% - 40px);
+    margin: 0 20px;
+  }
+}
 
 /* Top panel */
 
@@ -161,9 +186,8 @@ button {
   width: 170px;
   justify-content: space-between;
 
-
-  &__user{
-    &:before {
+  &__user {
+    &::before {
       position: relative;
       vertical-align: top;
       content: "";
@@ -188,29 +212,49 @@ button {
     display: inline-block;
     margin-right: 20px;
 
-    &:last-of-type{
+    &:last-of-type {
       margin-right: 0;
     }
   }
 }
 
+.menu {
+  @media (max-width: $tablet) {
+    display: none;
+  }
+}
+
 .main-header {
   margin-top: 57px;
+
+  @media (max-width: $tablet) {
+    margin-top: 20px;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
-.main-header__wrapper {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo{
+.logo {
   display: flex;
   flex-wrap: nowrap;
   flex-direction: row;
   align-items: center;
+
+  @media (max-width: $tablet) {
+    float: left;
+    display: block;
+    position: relative;
+  }
+
+  &__link {
+    width: 180px;
+  }
 
   &__img {
     position: relative;
@@ -225,27 +269,44 @@ button {
   &__txt {
     width: 210px;
     margin-left: 30px;
+
+    @media (max-width: $desktop) {
+      display: none;
+    }
   }
 }
 
 .search {
+  display: inline-block;
   position: relative;
   margin-right: 35px;
+  width: 260px;
+
+  @media (max-width: $desktop) {
+    margin: 0;
+  }
+
+  @media (max-width: $phone) {
+    position: relative;
+    width: 100%;
+    margin-top: 20px;
+  }
 }
 
 .search-input {
   position: relative;
-  width: 260px;
+  width: 100%;
   height: 40px;
   border-radius: 20px;
   padding-left: 40px;
   border: 1px solid rgba(#ffffff, 0.2);
   background-color: transparent;
   color: $text-color;
+
   @mixin Roboto-Reg;
 }
 
-.search-label{
+.search-label {
   &::before {
     content: "";
     position: absolute;
@@ -262,21 +323,192 @@ button {
 .phone {
   display: inline-block;
   font-size: 24px;
+
   @mixin Roboto-Bold;
+
   color: $text-color;
   vertical-align: middle;
   margin-right: 22px;
+
+  @media (max-width: $desktop) {
+    font-size: 20px;
+  }
+}
+
+.callback-wr {
+  @media (max-width: $tablet) {
+    width: 100%;
+    margin-top: 20px;
+  }
 }
 
 .callback {
   display: inline-block;
+
+  @media (max-width: $desktop) {
+    display: block;
+    margin-top: 20px;
+  }
 }
 
+.burger {
+  display: none;
+  width: 18px;
+  height: 15px;
+  background-image: url("/img/burger.svg");
+  background-repeat: no-repeat;
+  cursor: pointer;
+
+  @media (max-width: $tablet) {
+    display: block;
+  }
+}
 
 /* Main-info */
 
-main{
+main {
   position: relative;
   width: 100%;
+  height: 100vh;
+}
+
+.main-info {
+  position: absolute;
+  top: 55%;
+  left: 0;
+  transform: translateY(-50%);
+  max-width: 700px;
+  width: 100%;
+
+  @media (max-width: $tablet) {
+    top: 50%;
+  }
+
+  @media (max-width: $phone) {
+    top: 70%;
+  }
+}
+
+.catalog-link {
+  position: relative;
+  width: 240px;
+  height: 50px;
+  border: 1px solid rgba(#ffffff, 0.2);
+  text-align: center;
+  margin-top: 25px;
+  transition: border $transition;
+
+  &:hover {
+    border: 1px solid rgba(#ffffff, 0.8);
+    transition: border $transition;
+  }
+
+  &__txt {
+    font-size: 18px;
+    line-height: 42px;
+
+    &::before {
+      position: relative;
+      display: inline-block;
+      content: "";
+      width: 18px;
+      height: 14px;
+      vertical-align: middle;
+      margin-right: 20px;
+      background-image: url("/img/burger.svg");
+      background-repeat: no-repeat;
+      overflow: hidden;
+    }
+  }
+}
+
+.link-block {
+  position: relative;
+  display: block;
+  width: 100%;
   height: 100%;
+}
+
+/* Advantages-block */
+
+.advantages {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 130px;
+
+  @media (max-width: $tablet) {
+    height: auto;
+    bottom: 20px;
+  }
+
+  @media (max-width: $phone) {
+    display: none;
+  }
+}
+
+.adv-item {
+  position: relative;
+  width: 33%;
+  height: auto;
+  padding-left: 65px;
+
+  @media (max-width: $tablet) {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  &__supply::before {
+    background-image: url("/img/supply.svg");
+    background-repeat: no-repeat;
+    width: 43px;
+    height: 49px;
+  }
+
+  &__pay::before {
+    background-image: url("/img/pay.svg");
+    background-repeat: no-repeat;
+    width: 54px;
+    height: 44px;
+  }
+
+  &__divelery::before {
+    background-image: url("/img/delivery.svg");
+    background-repeat: no-repeat;
+    width: 44px;
+    height: 48px;
+  }
+
+  &__title {
+    @mixin Roboto-Bold;
+
+    font-size: 18px;
+    color: $text-color;
+    text-transform: uppercase;
+
+    @media (max-width: $desktop) {
+      font-size: 16px;
+      max-width: 230px;
+    }
+  }
+
+  &__desc {
+    margin-top: 8px;
+
+    @media (max-width: $desktop) {
+      font-size: 12px;
+    }
+  }
 }

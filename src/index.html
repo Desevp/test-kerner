@@ -31,7 +31,10 @@
     <div class="top-panel">
       <div class="wrapper top-panel__wrapper">
         <nav>
-          <ul class="horizont">
+          <div class="burger">
+            <a class= href="#"></a>
+          </div>
+          <ul class="horizont menu">
             <li><a href="#">О компании</a></li>
             <li><a href="#">Оплата и доставки</a></li>
             <li><a href="#">Производители</a></li>
@@ -55,19 +58,23 @@
       <div class="wrapper main-header__wrapper">
 
         <div class="logo">
-          <div class="logo__img">
+          <a class="logo__link" href="#">
+            <div class="logo__img">
 
-          </div>
+            </div>
+          </a>
           <div class="logo__txt">
             Оборудование для сверления и&nbsp;металлообработки
           </div>
         </div>
 
-        <div class="search">
-          <input class="search-input" type="text" id="search" name="search" value="" placeholder="Поиск по сайту...">
-          <label for="search">
-            <span class="search-label"></span>
-          </label>
+        <div class="main-header__search">
+          <div class="search">
+            <input class="search-input" type="text" id="search" name="search" value="" placeholder="Поиск по сайту...">
+            <label for="search">
+              <span class="search-label"></span>
+            </label>
+          </div>
         </div>
 
         <div class="callback-wr">
@@ -79,29 +86,49 @@
             <button type="button" name="button">Обратный звонок</button>
           </div>
         </div>
-
-
-
       </div>
     </div>
     </div>
   </header>
 
   <main>
-    <div class="main-info">
-      <h1>Промышленное оборудование для сверления и&nbsp;металлообработки</h1>
-
+    <div class="wrapper">
+      <div class="main-info">
+        <h1>Промышленное оборудование для&nbsp;сверления и&nbsp;металлообработки</h1>
+        <div class="catalog-link">
+          <a class="link-block" href="#">
+            <span class="catalog-link__txt">Перейти в каталог</span>
+          </a>
+        </div>
+      </div>
+      <div class="advantages">
+        <div class="adv-item adv-item__supply">
+          <div class="adv-item__title ">
+            Поставка оборудования и&nbsp;запчастей
+          </div>
+          <div class="adv-item__desc">
+            От 11 ведущих производителей
+          </div>
+        </div>
+        <div class="adv-item adv-item__pay">
+          <div class="adv-item__title ">
+            Рассрочка платежа
+          </div>
+          <div class="adv-item__desc">
+            До 45 дней с&nbsp;оформления заказа
+          </div>
+        </div>
+        <div class="adv-item adv-item__divelery">
+          <div class="adv-item__title ">
+            Доставка товаров
+          </div>
+          <div class="adv-item__desc">
+            Международная и&nbsp;междугородняя в&nbsp;срок&nbsp;до&nbsp;10 дней
+          </div>
+        </div>
+      </div>
     </div>
-
-    <div class="advantages">
-
-    </div>
-
   </main>
-
-
-
-
 </body>
 
 <script src="js/main.js"></script>
