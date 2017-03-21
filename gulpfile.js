@@ -15,6 +15,7 @@ var gulp = require('gulp'),
     pcssmixins = require('postcss-mixins'),
     pcssvar= require('postcss-simple-vars'),
     pcssnested= require('postcss-nested'),
+    hexrgba = require('postcss-hexrgba'),
     mqpacker = require('css-mqpacker'),
     cssnano = require('cssnano'),
     reload = browserSync.reload;
@@ -55,12 +56,12 @@ var config = {
 };
 
 var processors = [
-  autoprefixer ({browsers: ['last 3 versions']}),
-
+  autoprefixer ({browsers: ['last 3 versions']}),  
   cssimport(),
   pcssmixins(),
   pcssvar(),
   pcssnested(),
+  hexrgba(),
   mqpacker()
 ];
 

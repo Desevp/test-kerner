@@ -1,26 +1,14 @@
 
-@font-face {
-  font-family: "ProbaPro-Light";
-  font-style: normal;
-  font-weight: medium;
-  src: url("../fonts/probapro-light.woff2") format("woff2");
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
+
+@define-mixin Roboto-Bold {
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 700;
 }
 
-@font-face {
-  font-family: "ProbaPro-Regular";
-  font-style: normal;
-  font-weight: medium;
-  src: url("../fonts/probapro-regular.woff2") format("woff2");
-}
-
-@define-mixin ProbaPro-Light {
-  font-family: 'ProbaPro-Light', monospace;
-  font-style: normal;
-  font-weight: 300;
-}
-
-@define-mixin ProbaPro-Regular {
-  font-family: 'ProbaPro-Regular', monospace;
-  font-style: normal;
-  font-weight: 400;
+@define-mixin Roboto-Reg {
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 400;
 }
