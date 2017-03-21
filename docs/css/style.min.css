@@ -458,7 +458,8 @@ input:focus {
   display: inline-block;
   position: relative;
   margin-right: 35px;
-  width: 260px;
+  width: 100%;
+  max-width: 260px;
 }.search-input {
   position: relative;
   width: 100%;
@@ -609,12 +610,18 @@ input:focus {
     display: none;
   }.main-header{
     margin-top: 20px;
+  }.main-header__wrapper{
+    -ms-flex-align: start;
+    align-items: flex-start;
   }.logo{
     float: left;
     display: block;
     position: relative;
   }.callback-wr{
     width: 100%;
+    margin-top: 20px;
+  }.callback{
+    display: block;
     margin-top: 20px;
   }.burger{
     display: block;
@@ -636,9 +643,6 @@ input:focus {
     margin: 0;
   }.phone{
     font-size: 20px;
-  }.callback{
-    display: block;
-    margin-top: 20px;
   }.adv-item__title{
     font-size: 16px;
     max-width: 230px;
@@ -648,13 +652,15 @@ input:focus {
 }@media (max-width: 767px){.wrapper{
     width: calc(100% - 40px);
     margin: 0 20px;
-  }.search{
-    position: relative;
-    width: 100%;
-    margin-top: 20px;
   }.main-info{
     top: 70%;
   }.advantages{
     display: none;
+  }
+}@media (max-width: 479px){.main-header__wrapper{
+    display: block;
+  }.search{
+    position: relative;
+    margin-top: 20px;
   }
 }
