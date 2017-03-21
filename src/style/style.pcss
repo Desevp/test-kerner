@@ -407,17 +407,20 @@ main {
     font-size: 18px;
     line-height: 42px;
 
+
     &::before {
       position: relative;
       display: inline-block;
       content: "";
       width: 18px;
       height: 14px;
+      overflow: hidden;
       vertical-align: middle;
       margin-right: 20px;
       background-image: url("/img/burger.svg");
       background-repeat: no-repeat;
       overflow: hidden;
+      transform: translateZ(0);
     }
   }
 }
